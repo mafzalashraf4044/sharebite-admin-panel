@@ -1,0 +1,14 @@
+.dashboard .table-responsive, .dashboard table {
+	margin-bottom: 0px;
+}
+
+.dashboard-box {
+	background: #FFF;
+	padding: 20px;
+	border: 1px #DDD solid;
+	border-bottom-width: 2px;
+}
+
+.dashboard-box .media-left {
+	font-size: 20px;
+}

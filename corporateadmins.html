@@ -1,0 +1,301 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sharebite - Corporate Admins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="./images/sharebite-logo.svg">
+
+    <link href="./styles/dependencies/bootstrap.min.css" rel="stylesheet" />
+    <link href="./styles/dependencies/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="./styles/dependencies/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="./styles/core.css" rel="stylesheet" />
+    <link href="./styles/common.css" rel="stylesheet" />
+
+    <script src="./js/dependencies/jquery.min.js"></script>
+    <script src="./js/dependencies/bootstrap.min.js"></script>
+
+</head>
+
+
+<body>
+    <!-- Loader -->
+    <!-- <div class="loader"><div class="icon"></div></div> -->
+    <div id="site-container" class="container-fluid">
+        <div class="row visible-xs">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#cc-drawer" aria-controls="cc-drawer">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    <a class="navbar-brand" href="">
+                      <img class="brand-icon" alt="Sharebite" src="./images/sharebite-logo.svg">
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <div class="container-flex">
+            <nav class="col-xs-11 col-sm-4 col-md-3 navbar drawer collapse width bg-primary" id="cc-drawer">
+                <div class="row account-menu">
+                    <div class="user">
+                        <div class="name"><img class="dp dp-sm dp-circle" src="./images/silhouette.jpg" /> <span class="admin-name">Afzal Ashraf</span></div>
+                    </div>
+                    <a href="/logout" class="btn btn-danger btn-xs btn-logout"><i class="fa fa-power-off"></i></a>
+                </div>
+                <div class="row">
+                  <ul class="nav navbar-nav">
+                      <!-- list sidebar items -->
+                      <li>
+                          <a href="./dashboard.html"><i class="fa fa-fw fa-dashboard"></i>&nbsp;&nbsp;Dashboard</a>
+                      </li>
+                      <li>
+                          <a href="./employees.html"><i class="fa fa-fw fa-id-card-o"></i>&nbsp;&nbsp;Employees<span class="badge pull-right"></span></a>
+                      </li>
+                      <li>
+                          <a href="./employeegroup.html"><i class="fa fa-fw fa-users"></i>&nbsp;&nbsp;Employee Groups<span class="badge pull-right"></span></a>
+                      </li>
+                      <li>
+                          <a href="./expensecodes.html"><i class="fa fa-fw fa-money"></i>&nbsp;&nbsp;Expense Codes<span class="badge pull-right"></span></a>
+                      </li>
+                      <li>
+                          <a href="./corporateadmins.html" class="active"><i class="fa fa-fw fa-black-tie"></i>&nbsp;&nbsp;Corporate Admins<span class="badge pull-right"></span></a>
+                      </li>
+                      <li>
+                          <a href="./reports.html"><i class="fa fa-fw fa-files-o"></i>&nbsp;&nbsp;Reports<span class="badge pull-right"></span></a>
+                      </li>
+
+                  </ul>
+                </div>
+            </nav>
+            <div class="main-container col-xs-12 col-sm-8 col-md-9 bg-warning">
+                <div class="row site-header-row">
+                  <div class="site-header">
+                    <div class="header-left">
+                      <img class="brand-icon hidden-xs" alt="Sharebite" src="./images/sharebite-logo.svg" />
+                      <span class="hidden-xs"> &nbsp; - Corporate Dashboard</span>
+                      <ol class="breadcrumb" id="main-breadcrumb">
+                          <li>
+                              <a href="">
+                                  <span class="visible-xs">Sharebite</span>
+                              </a>
+                          </li>
+                          <li class="active">
+                            <a href="">
+                                <span>Corporate Admins</span>
+                            </a>
+                          </li>
+                      </ol>
+                    </div>
+                    <div class="switch-user-btn">
+                      <div class="btn-group" role="group">
+                        <button class="btn btn-sm btn-default"><span class="fa fa-fw fa-share"></span> Back to Superuser</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="page corporate-admins">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="table-responsive">
+                            <table class="table table-stripped table-hover data-table">
+                                <thead>
+                                    <tr>
+                                        <td colspan="4">
+                                            <div class="btn-group" role="group" aria-label="Admin Actions">
+                                              <button class="btn btn-sm btn-danger"><span class="fa fa-fw fa-trash"></span> Delete Selected</button>
+                                              <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#addCorporateAdminModal" title="Add Corporate Admin"><span class="fa fa-fw fa-plus"></span> Add Corporate Admin</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th width="150">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" data-group-id=""></td>
+                                        <td>Uzair Ahmed Khan <span class="label label-warning">Admin</span></td>
+                                        <td><span class="label label-primary">uzairak232@gmail.com</span></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Admin Actions">
+                                                <button class="btn btn-success btn-sm" title="View Corporate Admins"><span class="fa fa-fw fa-eye"></span></button>
+                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#editCorporateAdminModal" title="Edit Corporate Admin"><span class="fa fa-fw fa-pencil"></span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" data-group-id=""></td>
+                                        <td>Imran Khan</td>
+                                        <td><span class="label label-primary">imrankhan1231@gmail.com</span></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Admin Actions">
+                                                <button class="btn btn-success btn-sm" title="View Corporate Admins"><span class="fa fa-fw fa-eye"></span></button>
+                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#editCorporateAdminModal" title="Edit Corporate Admin"><span class="fa fa-fw fa-pencil"></span></button>
+                                                <button class="btn btn-success btn-sm" title="Active Corporate Admin"><span class="fa fa-fw fa-check"></span></button>
+                                                <button class="btn btn-danger btn-sm hidden" title="Inactive Corporate Admin"><span class="fa fa-fw fa-ban"></span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" data-group-id=""></td>
+                                        <td>Kamran Ali</td>
+                                        <td><span class="label label-primary">kamranali@gmail.com</span></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Admin Actions">
+                                                <button class="btn btn-success btn-sm" title="View Corporate Admins"><span class="fa fa-fw fa-eye"></span></button>
+                                                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#editCorporateAdminModal" title="Edit Corporate Admin"><span class="fa fa-fw fa-pencil"></span></button>
+                                                <button class="btn btn-success btn-sm hidden" title="Active Corporate Admin"><span class="fa fa-fw fa-check"></span></button>
+                                                <button class="btn btn-danger btn-sm" title="Inactive Corporate Admin"><span class="fa fa-fw fa-ban"></span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hidden">
+                                        <td colspan="4">
+                                            <div class="alert alert-warning"><span class="fa fa-info-circle fa-fw"></span> Nothing to display</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                      <th><input type="checkbox"></th>
+                                      <th>Name</th>
+                                      <th>Email</th>
+                                      <th width="150">Actions</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <!-- Add Corporate Admin Dialog -->
+                    <div class="modal fade " id="addCorporateAdminModal" role="dialog">
+                        <form class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Add Corporate Admin</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="first-name" class="col-sm-3 control-label">First Name: </label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="first-name" placeholder="First Name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="last-name" class="col-sm-3 control-label">Last Name: </label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="last-name" placeholder="Last Name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title" class="col-sm-3 control-label">Title: </label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="title" placeholder="Title">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ph-no" class="col-sm-3 control-label">Phone #: </label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="ph-no" placeholder="Phone Number">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="username" class="col-sm-3 control-label">Username: </label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="username" placeholder="Username">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-3 control-label">Email: </label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="email" placeholder="Email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-fw fa-times-circle"></span> Close</button>
+                                    <button type="submit" class="btn btn-success"><span class="fa fa-fw fa-check-circle"></span> Save changes</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <!-- Edit Corporate Admin Dialog -->
+                    <div class="modal fade" id="editCorporateAdminModal" role="dialog">
+                        <form class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Edit Corporate Admin</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-horizontal">
+                                      <div class="form-group">
+                                          <label for="first-name" class="col-sm-3 control-label">First Name: </label>
+                                          <div class="col-sm-9">
+                                              <input type="text" class="form-control" id="first-name" placeholder="First Name">
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="last-name" class="col-sm-3 control-label">Last Name: </label>
+                                          <div class="col-sm-9">
+                                              <input type="text" class="form-control" id="last-name" placeholder="Last Name">
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="title" class="col-sm-3 control-label">Title: </label>
+                                          <div class="col-sm-9">
+                                              <input type="text" class="form-control" id="title" placeholder="Title">
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="ph-no" class="col-sm-3 control-label">Phone #: </label>
+                                          <div class="col-sm-9">
+                                              <input type="text" class="form-control" id="ph-no" placeholder="Phone Number">
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="username" class="col-sm-3 control-label">Username: </label>
+                                          <div class="col-sm-9">
+                                              <input type="text" class="form-control" id="username" placeholder="Username">
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="email" class="col-sm-3 control-label">Email: </label>
+                                          <div class="col-sm-9">
+                                              <input type="text" class="form-control" id="email" placeholder="Email">
+                                          </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-fw fa-times-circle"></span> Close</button>
+                                    <button type="submit" class="btn btn-success"><span class="fa fa-fw fa-check-circle"></span> Save changes</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
