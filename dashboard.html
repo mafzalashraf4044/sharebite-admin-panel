@@ -6,7 +6,7 @@
     <title>Sharebite - Dashboard</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="./images/sharebite-logo.svg">
+    <link rel="icon" type="image/png" href="./images/sharebite-logo-colored.svg">
 
     <link href="./styles/dependencies/bootstrap.min.css" rel="stylesheet" />
     <link href="./styles/dependencies/bootstrap-theme.min.css" rel="stylesheet" />
@@ -35,13 +35,13 @@
                           <span class="icon-bar"></span>
                       </button>
                     <a class="navbar-brand" href="">
-                        <img class="brand-icon" alt="Sharebite" src="./images/sharebite-logo.svg">
+                        <img class="brand-icon" alt="Sharebite" src="./images/sharebite-logo-colored.svg">
                     </a>
                 </div>
             </nav>
         </div>
         <div class="container-flex">
-            <nav class="col-xs-11 col-sm-4 col-md-3 navbar navbar-static drawer collapse width bg-primary" id="cc-drawer">
+            <nav class="col-xs-11 col-sm-4 col-md-3 navbar navbar-static drawer collapse width" id="cc-drawer">
                 <div class="row account-menu">
                     <div class="user">
                         <div class="name"><img class="dp dp-sm dp-circle" src="./images/silhouette.jpg" /> <span class="admin-name">Afzal Ashraf</span></div>
@@ -72,16 +72,16 @@
                     </ul>
                 </div>
             </nav>
-            <div class="main-container col-xs-12 col-sm-8 col-md-9 bg-warning">
+            <div class="main-container col-xs-12 col-sm-8 col-md-9">
                 <div class="row site-header-row">
                   <div class="site-header">
                     <div class="header-left">
-                      <img class="brand-icon hidden-xs" alt="Sharebite" src="./images/sharebite-logo.svg" />
-                      <span class="hidden-xs"> &nbsp; &#8211; Corporate Dashboard</span>
+                      <img class="brand-icon hidden-xs" alt="Sharebite" src="./images/sharebite-logo-colored.svg" /><span class="hidden-xs">&nbsp;&#8211;&nbsp;</span>
+
                       <ol class="breadcrumb" id="main-breadcrumb">
                           <li>
                               <a href="">
-                                  <span class="visible-xs">Sharebite</span>
+                                  <span>Doozie Labs</span>
                               </a>
                           </li>
                           <li class="active">
@@ -105,7 +105,7 @@
                         <div class="col-xs-12 col-sm-3">
                             <div class="stats-box">
                                 <div class="header">
-                                    Daily Allowances Consumed
+                                    Allowances Consumed Today
                                 </div>
                                 <div class="body">
                                     <div class="media">
@@ -113,7 +113,7 @@
                                             <span class="fa fa-fw fa-user-plus fa-4x"></span>
                                         </div>
                                         <div class="media-body text-right">
-                                            <span class="fa fa-4x">23</span>
+                                            <span class="fa fa-4x">$230</span>
                                         </div>
                                     </div>
                                 </div>
@@ -123,10 +123,31 @@
                             </div>
                         </div>
 
+						<div class="col-xs-12 col-sm-3">
+                            <div class="stats-box">
+                                <div class="header">
+                                    Total Allowances Consumed
+                                </div>
+                                <div class="body">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <span class="fa fa-fw fa-user fa-4x"></span>
+                                        </div>
+                                        <div class="media-body text-right">
+                                            <span class="fa fa-4x">$1.2K</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <a href="./passengers.html">View all total allowances consumed</a>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-xs-12 col-sm-3">
                             <div class="stats-box">
                                 <div class="header">
-                                    Daily Orders Count
+                                    Orders Today
                                 </div>
                                 <div class="body">
                                     <div class="media">
@@ -140,27 +161,6 @@
                                 </div>
                                 <div class="footer">
                                     <a href="./passengers.html">View all daily orders count</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xs-12 col-sm-3">
-                            <div class="stats-box">
-                                <div class="header">
-                                    Total Allowances Consumed
-                                </div>
-                                <div class="body">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <span class="fa fa-fw fa-user fa-4x"></span>
-                                        </div>
-                                        <div class="media-body text-right">
-                                            <span class="fa fa-4x">124</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer">
-                                    <a href="./passengers.html">View all total allowances consumed</a>
                                 </div>
                             </div>
                         </div>
@@ -187,7 +187,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row hidden">
                         <div class="col-xs-12 col-md-6">
                             <!-- USERS BY QURAN SCRIPT -->
                             <div class="tab-content margin-bottom-20">
@@ -263,7 +263,7 @@
 
                 </div>
 
-                <div class="page" id="404">
+                <div class="page hidden" id="404">
                     <style>
                         .notFound {
                             font-size: 36px;
@@ -289,6 +289,7 @@
             </div>
         </div>
     </div>
+	<div class="loader hidden"><div class="icon"></div></div>
 </body>
 
 </html>

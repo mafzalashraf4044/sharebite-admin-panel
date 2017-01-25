@@ -37,8 +37,9 @@
 	width: 100px;
 	height: 100px;
 	margin: auto;
-	border-radius: 10px;
-	background-image: url('../images/sharebite-logo.svg');
+	border-radius: 50px;
+	background-image: url('../images/icon.png');
+	background-color: #fff;
 	background-size: 100%;
 
 	-webkit-animation: spin 1.2s infinite; /* Safari 4+ */

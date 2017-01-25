@@ -6,7 +6,7 @@
     <title>Sharebite - Employee Group</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="./images/sharebite-logo.svg">
+    <link rel="icon" type="image/png" href="./images/sharebite-logo-colored.svg">
 
     <link href="./styles/dependencies/bootstrap.min.css" rel="stylesheet" />
     <link href="./styles/dependencies/bootstrap-theme.min.css" rel="stylesheet" />
@@ -18,10 +18,16 @@
     <script src="./js/dependencies/jquery.min.js"></script>
     <script src="./js/dependencies/bootstrap.min.js"></script>
 
+    <script src="./js/employeesgroup.js"></script>
+
     <!-- Bootstrap Date Picker -->
     <script type="text/javascript" src="./bower_components/moment/min/moment.min.js"></script>
     <script type="text/javascript" src="./bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" href="./bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
+    <!-- Bootstrap Multi Select -->
+    <script type="text/javascript" src="./bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" href="./bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" />
 
 </head>
 
@@ -40,13 +46,13 @@
                             <span class="icon-bar"></span>
                         </button>
                     <a class="navbar-brand" href="">
-                        <img class="brand-icon" alt="Sharebite" src="./images/sharebite-logo.svg">
+                        <img class="brand-icon" alt="Sharebite" src="./images/sharebite-logo-colored.svg">
                     </a>
                 </div>
             </nav>
         </div>
         <div class="container-flex">
-            <nav class="col-xs-11 col-sm-4 col-md-3 navbar drawer collapse width bg-primary" id="cc-drawer">
+            <nav class="col-xs-11 col-sm-4 col-md-3 navbar drawer collapse width" id="cc-drawer">
                 <div class="row account-menu">
                     <div class="user">
                         <div class="name"><img class="dp dp-sm dp-circle" src="./images/silhouette.jpg" /> <span class="admin-name">Afzal Ashraf</span></div>
@@ -82,12 +88,12 @@
                 <div class="row site-header-row">
                   <div class="site-header">
                     <div class="header-left">
-                      <img class="brand-icon hidden-xs" alt="Sharebite" src="./images/sharebite-logo.svg" />
-                      <span class="hidden-xs"> &nbsp; - Corporate Dashboard</span>
+                      <img class="brand-icon hidden-xs" alt="Sharebite" src="./images/sharebite-logo-colored.svg" /><span class="hidden-xs">&nbsp;&#8211;&nbsp;</span>
+
                       <ol class="breadcrumb" id="main-breadcrumb">
                           <li>
                               <a href="">
-                                  <span class="visible-xs">Sharebite</span>
+                                  <span>Doozie Labs</span>
                               </a>
                           </li>
                           <li class="active">
@@ -129,8 +135,8 @@
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" data-group-id=""></td>
-                                        <td>New Employees</td>
-                                        <td><span class="label label-primary">$200</span></td>
+                                        <td>Design Team</td>
+                                        <td>$200</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Admin Actions">
                                                 <button class="btn btn-info btn-sm" title="View Employee Group"><span class="fa fa-fw fa-eye"></span></button>
@@ -143,8 +149,22 @@
                                     </tr>
                                     <tr>
                                         <td><input type="checkbox" data-group-id=""></td>
-                                        <td>New Employees</td>
-                                        <td><span class="label label-primary">$200</span></td>
+                                        <td>Development Team</td>
+                                        <td>$200</td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Admin Actions">
+                                                <button class="btn btn-info btn-sm" title="View Employee Group"><span class="fa fa-fw fa-eye"></span></button>
+                                                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#editEmployeeGroupModal" title="Edit Employee Group"><span class="fa fa-fw fa-pencil"></span></button>
+                                                <button class="btn btn-success btn-sm hidden" title="Active Employee Group"><span class="fa fa-fw fa-check"></span></button>
+                                                <button class="btn btn-danger btn-sm" title="Inactive Employee Group"><span class="fa fa-fw fa-ban"></span></button>
+                                                <button class="btn btn-danger btn-sm" title="Delete Employee Group"><span class="fa fa-fw fa-trash"></span></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                  									<tr>
+                                        <td><input type="checkbox" data-group-id=""></td>
+                                        <td>Managers</td>
+                                        <td>$200</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Admin Actions">
                                                 <button class="btn btn-info btn-sm" title="View Employee Group"><span class="fa fa-fw fa-eye"></span></button>
@@ -161,14 +181,6 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th><input type="checkbox"></th>
-                                        <th>Name</th>
-                                        <th>Allowances</th>
-                                        <th width="170">Actions</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -191,12 +203,6 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="code" class="col-sm-2 control-label">* Code: </label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="code" placeholder="Code">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
                                                 <label for="allowance" class="col-sm-2 control-label">* Allowance: </label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="allowance" placeholder="Allowance">
@@ -205,20 +211,19 @@
                                             <div class="form-group">
                                                 <label for="employees-list" class="col-sm-2 control-label">Employees List:</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control" multiple id="employees-list">
-                                                      <option>Employee 1</option>
-                                                      <option>Employee 2</option>
-                                                      <option>Employee 3</option>
-                                                      <option>Employee 4</option>
-                                                      <option>Employee 5</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-sm-10 col-sm-offset-2">
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox"> Select All</label>
-                                                    </div>
+                                                  <select
+                                                     class="selectpicker"
+                                                     multiple data-style="btn-default"
+                                                     data-width="100%"
+                                                     data-actions-box="true"
+                                                     data-live-search="true"
+                                                     data-none-selected-text="Select Employees"
+                                                  >
+                                                    <option>Employee 1</option>
+                                                    <option>Employee 2</option>
+                                                    <option>Employee 3</option>
+                                                    <option>Employee 4</option>
+                                                  </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -228,203 +233,48 @@
                                         <div class="panel-heading">Allowance Hours *</div>
                                         <div class="panel-body">
                                             <div class="form-horizontal">
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon radio-btn-group">
-                                                              <label class="radio-inline radio-flex"><input type="radio" name="optradio">Weekdays</label>
-                                                              <label class="radio-inline radio-flex"><input type="radio" name="optradio">Weekdays &amp; Saturday</label>
-                                                              <label class="radio-inline radio-flex"><input type="radio" name="optradio">7 Days a week</label>
-                                                            </span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
+                                              <div id="allowance-hours-container">
+                                                  <div class="row allowance-hours-row">
+                                                    <div class="col-md-7">
+                                                      <div class="input-group">
+                                                        <select class="form-control" id="allowance-days">
+                                                          <option>Monday</option>
+                                                          <option>Tuesday</option>
+                                                          <option>Wednesday</option>
+                                                          <option>Thursday</option>
+                                                          <option>Friday</option>
+                                                          <option>Saturday</option>
+                                                          <option>Sunday</option>
+                                                          <option>Weekdays</option>
+                                                          <option>Weekdays and Saturday</option>
+                                                          <option>7 Days a week</option>
+                                                        </select>
+                                                        <span class="input-group-addon">Days</span>
+                                                      </div>
                                                     </div>
-                                                </div>
-
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Monday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
+                                                    <div class="col-md-2">
+                                                      <div class="input-group date">
+                                                        <input type="text" class="form-control" placeholder="Hours">
+                                                        <span class="input-group-addon"><span class="fa fa-clock-o"></span></span>
+                                                      </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Tuesday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
+                                                    <div class="col-md-2">
+                                                      <div class="input-group date">
+                                                        <input type="text" class="form-control" placeholder="Hours">
+                                                        <span class="input-group-addon"><span class="fa fa-clock-o"></span></span>
+                                                      </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Wednesday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
+                                                    <div class="col-md-1">
+                                                      <button type="button" class="btn btn-danger remove-btn" id="remove-btn"><span class="fa fa-minus"></span></button>
                                                     </div>
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="col-md-12 add-btn">
+                                                  <button type="button" class="btn btn-warning btn-block" id="add-btn"><span class="fa fa-plus"></span></button>
                                                 </div>
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
+                                              </div>
 
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Thursday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Friday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Saturday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Sunday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -456,12 +306,6 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="code" class="col-sm-2 control-label">* Code: </label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="code" placeholder="Code">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
                                                 <label for="allowance" class="col-sm-2 control-label">* Allowance: </label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="allowance" placeholder="Allowance">
@@ -470,20 +314,19 @@
                                             <div class="form-group">
                                                 <label for="employees-list" class="col-sm-2 control-label">Employees List:</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control" multiple id="employees-list">
-                                                      <option>Employee 1</option>
-                                                      <option>Employee 2</option>
-                                                      <option>Employee 3</option>
-                                                      <option>Employee 4</option>
-                                                      <option>Employee 5</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-sm-10 col-sm-offset-2">
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox"> Select All</label>
-                                                    </div>
+                                                  <select
+                                                     class="selectpicker"
+                                                     multiple data-style="btn-default"
+                                                     data-width="100%"
+                                                     data-actions-box="true"
+                                                     data-live-search="true"
+                                                     data-none-selected-text="Select Employees"
+                                                  >
+                                                    <option>Employee 1</option>
+                                                    <option>Employee 2</option>
+                                                    <option>Employee 3</option>
+                                                    <option>Employee 4</option>
+                                                  </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -493,203 +336,48 @@
                                         <div class="panel-heading">Allowance Hours *</div>
                                         <div class="panel-body">
                                             <div class="form-horizontal">
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon radio-btn-group">
-                                                        <label class="radio-inline radio-flex"><input type="radio" name="optradio">Weekdays</label>
-                                                        <label class="radio-inline radio-flex"><input type="radio" name="optradio">Weekdays &amp; Saturday</label>
-                                                        <label class="radio-inline radio-flex"><input type="radio" name="optradio">7 Days a week</label>
-                                                      </span>
-                                                      <div class='input-group date from'>
-                                                          <input type="text" class="form-control">
-                                                          <span class="input-group-addon">
-                                                            <span class="fa fa-fw fa-calendar"></span>
-                                                          </span>
+                                              <div id="allowance-hours-container">
+                                                  <div class="row allowance-hours-row">
+                                                    <div class="col-md-7">
+                                                      <div class="input-group">
+                                                        <select class="form-control" id="allowance-days">
+                                                          <option>Monday</option>
+                                                          <option>Tuesday</option>
+                                                          <option>Wednesday</option>
+                                                          <option>Thursday</option>
+                                                          <option>Friday</option>
+                                                          <option>Saturday</option>
+                                                          <option>Sunday</option>
+                                                          <option>Weekdays</option>
+                                                          <option>Weekdays and Saturday</option>
+                                                          <option>7 Days a week</option>
+                                                        </select>
+                                                        <span class="input-group-addon">Days</span>
                                                       </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
                                                     </div>
-                                                </div>
-
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Monday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
+                                                    <div class="col-md-2">
+                                                      <div class="input-group date">
+                                                        <input type="text" class="form-control" placeholder="Hours">
+                                                        <span class="input-group-addon"><span class="fa fa-clock-o"></span></span>
+                                                      </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Tuesday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
+                                                    <div class="col-md-2">
+                                                      <div class="input-group date">
+                                                        <input type="text" class="form-control" placeholder="Hours">
+                                                        <span class="input-group-addon"><span class="fa fa-clock-o"></span></span>
+                                                      </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Wednesday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
+                                                    <div class="col-md-1">
+                                                      <button type="button" class="btn btn-danger remove-btn" id="remove-btn"><span class="fa fa-minus"></span></button>
                                                     </div>
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="col-md-12 add-btn">
+                                                  <button type="button" class="btn btn-warning btn-block" id="add-btn"><span class="fa fa-plus"></span></button>
                                                 </div>
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
+                                              </div>
 
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Thursday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Friday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Saturday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group allowance-hours-row">
-                                                    <input type="checkbox" class="checkbox">
-
-                                                    <div class="col-sm-11 fields-container">
-                                                        <div class="custom-input-group">
-                                                            <span class="input-group-addon">Sunday</span>
-                                                            <div class='input-group date from'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="to-container">
-                                                            <div class="dash"> - </div>
-                                                            <div class='input-group date to'>
-                                                                <input type="text" class="form-control">
-                                                                <span class="input-group-addon">
-                                                                  <span class="fa fa-fw fa-calendar"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -708,21 +396,6 @@
     </div>
     </div>
 
-    <script type="text/javascript">
-        $(function() {
-            $('.date').datetimepicker({
-                icons: {
-                    time: "fa fa-clock-o",
-                    date: "fa fa-calendar",
-                    up: "fa fa-arrow-up",
-                    down: "fa fa-arrow-down",
-                    previous: "fa fa-arrow-left",
-                    next: "fa fa-arrow-right",
-                },
-                viewDate: false
-            });
-        });
-    </script>
 </body>
 
 </html>

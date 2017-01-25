@@ -5,9 +5,9 @@
 		<title>Sharebite - Login</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/png" href="/images/sharebite-logo.svg">
 
-				<link href="./styles/dependencies/bootstrap.min.css" rel="stylesheet"/>
+        <link rel="icon" type="image/png" href="/images/sharebite-logo.svg">
+		<link href="./styles/dependencies/bootstrap.min.css" rel="stylesheet"/>
         <link href="./styles/dependencies/bootstrap-theme.min.css" rel="stylesheet"/>
         <link href="./styles/dependencies/font-awesome.min.css" rel="stylesheet"/>
         <link href="./styles/entrance.css" rel="stylesheet"/>
@@ -27,7 +27,11 @@
 					<div class="row">
             <script type="text/javascript" src="/js/entrance.js"></script>
             <form class="row login-form" method="post" action="/login">
-            	<div class="notification-center" id="main-notification-center"></div>
+            	<div class="notification-center" id="main-notification-center">
+					<div class="alert alert-warning">
+						Welcome! Please enter your credentials to continue
+					</div>
+				</div>
             	<div class="login-fields">
             		<div class="col-xs-12">
             			<div class="row">

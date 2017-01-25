@@ -6,8 +6,8 @@ html, body, #site-container {
 .navbar {
 	margin-bottom: 0px;
 	border: none;
-	border-right: 1px solid white;
-	background-color: #FFF;
+	/*border-right: 1px solid white;*/
+	background-color: #ff9e3f;
 }
 
 .nav.nav-tabs > li:not(.active) > a:hover {
@@ -16,14 +16,29 @@ html, body, #site-container {
 
 .container-flex .navbar.drawer .nav.navbar-nav > li > a:hover {
 	text-decoration: none;
-  background-color: #fd9226;
-  color: #FFF!important;
+	background-color: #f7820c;
+	color: #FFF !important;
 }
 
 .container-flex .navbar.drawer .nav.navbar-nav > li > .active {
 	text-decoration: none;
-  background-color: #fd9226;
-  color: #FFF!important;
+	background-color: #f7820c;
+	/*background-image: linear-gradient(to bottom,#ffab56 0,#f7820c 100%);*/
+	color: #FFF !important;
+}
+
+.container-flex .navbar.drawer .nav.navbar-nav > li > .active::after {
+	content: " ";
+	height: 100%;
+	width: 0px;
+	border-bottom: 10px #f7820c solid;
+	border-top: 10px #f7820c solid;
+	border-right: 20px #fff solid;
+	box-sizing: border-box;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
 }
 
 .navbar.navbar-default .navbar-header {
@@ -31,7 +46,7 @@ html, body, #site-container {
 }
 
 .navbar.navbar-default .brand-icon {
-	width: 80px!important;
+	width: 80px !important;
 }
 
 .container-flex {
@@ -66,7 +81,9 @@ html, body, #site-container {
 
 .container-flex .navbar.drawer .account-menu {
 	background-color: #fd9226;
-	border-bottom: 1px #f7820c solid;
+	/*background-image: linear-gradient(to bottom,#222222 0,#454545 100%);*/
+	background-image: linear-gradient(to bottom,#ffab56 0,#f7820c 100%);
+	border-bottom: 1px #d66b00 solid;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -88,6 +105,7 @@ html, body, #site-container {
 
 .container-flex .navbar.drawer .account-menu .user .admin-name {
 	margin-left: 5px;
+	color: #FFF;
 }
 
 .container-flex .navbar.drawer .nav.navbar-nav {
@@ -102,7 +120,7 @@ html, body, #site-container {
 }
 
 .container-flex .navbar.drawer .nav.navbar-nav > li > a {
-	color: #fd9226;
+	color: #FFF;
 }
 
 .container-flex .navbar.drawer .nav.navbar-nav > li.active > a {
@@ -152,7 +170,7 @@ html, body, #site-container {
 .container-flex .main-container .tab-content {
 	background-color: #FFF;
 	border: 1px #DDD solid;
-	border-top: none;
+	/*border-top: none;*/
 }
 
 .container-flex .main-container .data-table tr.processing {
@@ -169,7 +187,7 @@ html, body, #site-container {
 @media(min-width: 768px) {
 	.container-flex {
 		min-height: 100%;
-	}
+}
 
 	.container-flex .navbar.drawer {
 		margin-left: 0% !important;
@@ -250,25 +268,22 @@ html, body, #site-container {
 }
 
 .stats-box {
-	background-color: #13639C;
+	background-color: #FFCC80;
 	color: #FFF;
 	margin: 10px 0px;
 }
 
 .stats-box .header {
-	background-image: linear-gradient(to bottom,#ffab56 0,#f7820c 100%);
+	background-color: #ff9e3f;
 	padding: 5px;
 }
 
 .stats-box .body {
-	background-color: white;
-	color: #f7820c;
 	padding: 20px 5px;
 }
 
 .stats-box .footer {
-	background-image: linear-gradient(to bottom,#ffab56 0,#f7820c 100%);
-	background-color: #146CAA;
+	background-color: #FFB74D;
 	padding: 5px;
 	font-size: 11px;
 }
@@ -301,72 +316,8 @@ html, body, #site-container {
 	font-size: 13px;
 }
 
-.employeeGroupModal .allowance-hours-row {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
-.employeeGroupModal .allowance-hours-row .checkbox-container {
-	width: 5%;
-}
-
-.employeeGroupModal .allowance-hours-row .fields-container {
-	width: 95%;
-	display: flex;
-	display: -webkit-flex;
-	flex-direction: row;
-	flex-direction: -webkit-row;
-}
-
-.employeeGroupModal .allowance-hours-row .checkbox {
-	width: 34px;
-	height: 34px;
-}
-
-.employeeGroupModal .allowance-hours-row .fields-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
-.employeeGroupModal .allowance-hours-row .to-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
-.employeeGroupModal .allowance-hours-row .custom-input-group {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-
-}
-
-.employeeGroupModal .allowance-hours-row .dash {
-	margin-right: 20px;
-}
-
-.employeeGroupModal .allowance-hours-row .input-group-addon {
-	width: 320px;
-}
-
-.employeeGroupModal .allowance-hours-row .from, .to {
-	width: 220px;
-}
-
-.employeeGroupModal .allowance-hours-row .from {
-	border-bottom-left-radius: 0;
-	border-top-left-radius: 0;
-}
-
-.employeeGroupModal .allowance-hours-row .to .input-group-addon,
-.employeeGroupModal .allowance-hours-row .from .input-group-addon{
-	width: 50px;
-}
-
-.employeeGroupModal .allowance-hours-row .radio-inline {
-	font-size: 9px;
+.main-container {
+	background-color: #FFF; //rgba(252, 248, 227, 0.25);
 }
 
 .main-container .site-header .header-left {
@@ -383,8 +334,19 @@ html, body, #site-container {
 	align-items: center;
 	background-color: white;
 	padding: 12px;
-	background-image: linear-gradient(to bottom,#ffab56 0,#f7820c 100%);
+	/*background-image: linear-gradient(to bottom,#ffab56 0,#f7820c 100%);*/
+	background-image: linear-gradient(to bottom,#f5f5f5 0,#e8e8e8 100%);
+	/*background-color: #F2F2F2;*/
 	height: 57px;
+	border-bottom: 1px #DDD solid;
+}
+
+.main-container .site-header img {
+	margin-top: -4px;
+}
+
+.main-container .site-header *:not(.btn):not(.fa) {
+	color: #f7820c !important;
 }
 
 .main-container .site-header-row {
@@ -392,22 +354,49 @@ html, body, #site-container {
 	color: white;
 }
 
+.expense-codes .table .col-1 {
+	width: 50px;
+}
+
+.employeeGroupModal .add-btn {
+	margin-top: 10px;
+}
+
+.employeeGroupModal .remove-btn {
+	float: right;
+}
+
+.employeeGroupModal .allowance-hours-row {
+  margin: 5px -10px;
+}
+
 .hidden {
 	display: none;
 }
 
-.employeeGroupModal .allowance-hours-row .radio-btn-group {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-}
-
-.employeeGroupModal .allowance-hours-row .radio-flex {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-}
-
 .fa.fa-black-tie {
 	font-size: 18px;
+}
+
+.fa.fa-minus {
+	color: white;
+}
+
+@media(max-width: 767px) {
+
+
+}
+
+@media(min-width: 768px) {
+	.allowance-hours-row .col-md-8,
+	.allowance-hours-row .col-md-7,
+	.allowance-hours-row .col-md-2,
+	.allowance-hours-row .col-md-1{
+		margin: 5px auto;
+	}
+
+	.remove-btn {
+		width: 100%;
+	}
+
 }
